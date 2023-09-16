@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block myTitle %}Ajout d'un éditeur{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+    <div class="ms-4">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        {{ form_errors(form.name) }}
+    </div>
+    <input type="submit" class="btn btn-primary ms-4 m-3" style="width:150px" value="Valider"/>
+{{ form_end(form) }}
+
+{% endblock %}

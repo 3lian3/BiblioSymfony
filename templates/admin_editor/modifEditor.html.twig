@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification{% endblock %}
+
+{% block myTitle %}
+{% if isModification %}
+    Modification de l'éditeur {{ editor.name }}
+{% else %}
+    Ajout d'un auteur
+{% endif %}
+{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-8 p-5">
+            <div>{{ form_row(form.name) }}</div>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary ms-4" style="width:150px" value="Valider"/>
+{{ form_end(form) }}
+
+{% endblock %}

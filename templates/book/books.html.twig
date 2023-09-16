@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livres{% endblock %}
+
+{% block myTitle %}Liste des livres{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        {% for book in books %}
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card border-primary mb-3 mx-auto" style="max-width:25rem; height:27rem">
+                <div class="card-header text-center">
+                    <img src="{{ asset('img/'~book.img) }}" alt="livre" width="80px">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-center pb-2 mx-3 border-bottom border-primary">{{ book.title }}</h3>
+                    <p class="card-text">
+                        <h4 class="text-center">Auteur : {{ book.author }}</h4>
+                        <table class="table text-center">
+                            <tr>
+                                <td><strong>Editeur :</td>
+                                <td>{{ book.editor }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Catégorie :</td>
+                                <td>{{ book.category }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Publié le :</td>
+                                <td>{{ book.dateOfPublication }}
+                            </td>
+                        </table>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
+
+                      

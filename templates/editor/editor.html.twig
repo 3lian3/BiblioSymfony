@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Éditeur{% endblock %}
+
+{% block myTitle %}Liste des éditeur{% endblock %}
+
+{% block body %}
+    <a class="btn btn-primary ms-4" href="{{path('admin_editor_new')}}">Ajouter un éditeur</a>
+    <table class="table ms-5">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Édition :</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for editor in editors %}
+            <tr>
+                <td>{{ editor.id }}</td>
+                <td>{{ editor.name }}</td>
+                <td>
+                <a class="btn btn-primary" href="{{ path('admin_editor_modification', {id: editor.id}) }}">Modifier</a>
+                <a class="btn btn-danger" href="{{ path('admin_editor_delete', {id: editor.id}) }}" onclick="return confirm('Etes vous sur ?')">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

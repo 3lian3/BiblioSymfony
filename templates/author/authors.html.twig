@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteur{% endblock %}
+
+{% block myTitle %}Liste des auteurs{% endblock %}
+
+{% block body %}
+    <a class="btn btn-primary ms-4" href="{{path('admin_author_new')}}">Ajouter un auteur</a>
+    <table class="table ms-5">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th class="m-3">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for author in authors %}
+            <tr>
+                <td>{{ author.id }}</td>
+                <td>{{ author.lastname}}</td>
+                <td>{{ author.firstname }}</td>
+                <td>
+                <a class="btn btn-primary" href="{{ path('admin_author_modification', {id: author.id}) }}">Modifier</a>
+                <a class="btn btn-danger" href="{{ path('admin_author_delete', {id: author.id}) }}" onclick="return confirm('Etes vous sur ?')">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
